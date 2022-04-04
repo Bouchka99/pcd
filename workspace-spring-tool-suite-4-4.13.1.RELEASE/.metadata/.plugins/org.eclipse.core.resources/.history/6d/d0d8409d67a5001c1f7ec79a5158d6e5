@@ -1,0 +1,24 @@
+package com.example.demo.controller;
+import com.example.demo.model.Medecin;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.repository.MedecinRepository;
+
+@RestController
+@RequestMapping("/api/v1")
+public class MedecinController {
+	@Autowired
+	private MedecinRepository medecinRepository;
+	//get all medecins
+	@GetMapping("/Medecin")
+	public List<Medecin> getAllMedecin(){
+		return medecinRepository.findAll();
+	}
+
+}
